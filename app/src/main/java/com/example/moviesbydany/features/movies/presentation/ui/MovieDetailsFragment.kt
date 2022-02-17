@@ -8,10 +8,12 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.example.moviesbydany.R
 import com.example.moviesbydany.databinding.FragmentDetailsBinding
+import dagger.hilt.android.AndroidEntryPoint
 
 /**
  * A simple [Fragment] subclass as the second destination in the navigation.
  */
+@AndroidEntryPoint
 class MovieDetailsFragment : Fragment() {
 
     private var _binding: FragmentDetailsBinding? = null

@@ -44,7 +44,7 @@ class ItemFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                adapter = MoviesRecyclerViewAdapter(movies)
+                adapter = MoviesRecyclerViewAdapter()
             }
         }
         return view

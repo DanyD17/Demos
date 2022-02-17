@@ -1,4 +1,4 @@
-package com.example.danytransfernow.feature.login.domain.usecase
+package com.example.moviesbydany.features.movies.domain.usecase
 
 
 import com.example.moviesbydany.core.useCase.SingleUseCase
@@ -9,14 +9,14 @@ import javax.inject.Inject
 
 
 class GetMoviesListUseCase @Inject constructor(private val repository: MoviesRepository) :
-    SingleUseCase<MovieSearchResult, Params>() {
+    SingleUseCase<MovieSearchResult, ListParams>() {
 
-    override fun buildUseCaseSingle(params: Params): Single<MovieSearchResult> {
+    override fun buildUseCaseSingle(params: ListParams): Single<MovieSearchResult> {
         return repository.getMovies(name = params.name, index = params.index)
     }
 }
 
-data class Params(
+data class ListParams(
     var name: String,
-    var index: Int
+    var index: Int = 1
 )

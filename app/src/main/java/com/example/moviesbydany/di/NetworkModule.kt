@@ -112,19 +112,5 @@ class NetworkModule {
         return retrofit.create(RetrofitService::class.java)
     }
 
-//    @Singleton
-//    @Provides
-//    fun provideAuthRepository(
-//        authDataSource: AuthDataSource
-//    ):AuthRepository {
-//        return AuthRepositoryImp(authDataSource)
-//    }
-//
-//    @Singleton
-//    @Provides
-//    fun provideAuthDataSource(
-//        retrofitService: RetrofitService
-//    ): AuthDataSource {
-//        return AuthDataSourceImp(retrofitService)
-//    }
+
 }

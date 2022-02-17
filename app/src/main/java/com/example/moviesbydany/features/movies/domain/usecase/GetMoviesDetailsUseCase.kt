@@ -13,10 +13,8 @@ class GetMoviesDetailsUseCase @Inject constructor(private val repository: Movies
     override fun buildUseCaseSingle(params: Params): Single<MovieDetails> {
         return repository.getMovieDetails(movieID = params.id)
     }
-
-
 }
 
 data class Params(
-    var id: Int
+    var id: String
 )

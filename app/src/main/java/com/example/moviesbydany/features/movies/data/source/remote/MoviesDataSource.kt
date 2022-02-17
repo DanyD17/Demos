@@ -14,7 +14,7 @@ import javax.inject.Inject
  * */
 abstract class MoviesDataSource {
     abstract fun getMovies(name: String, index: Int): Single<MovieSearchResult>
-    abstract fun getMovieDetails(id: Int): Single<MovieDetails>
+    abstract fun getMovieDetails(id: String): Single<MovieDetails>
 
 }
 
@@ -24,11 +24,11 @@ class MoviesDataSourceImp @Inject constructor(
 
 
     override fun getMovies(name: String, index: Int): Single<MovieSearchResult> {
-        return retrofitService.getMovies()
+        return retrofitService.getMovies(name = name, pageNo = index)
     }
 
-    override fun getMovieDetails(id: Int): Single<MovieDetails> {
-        return retrofitService.getMovieDetails()
+    override fun getMovieDetails(id: String): Single<MovieDetails> {
+        return retrofitService.getMovieDetails(id = id)
     }
 
 

@@ -8,5 +8,5 @@ import io.reactivex.Single
 interface MoviesRepository {
 
     fun getMovies(name: String, index: Int): Single<MovieSearchResult>
-    fun getMovieDetails(movieID: Int): Single<MovieDetails>
+    fun getMovieDetails(movieID: String): Single<MovieDetails>
 }

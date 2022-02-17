@@ -15,15 +15,14 @@ import javax.inject.Inject
  * */
 class MovieRepositoryImp @Inject constructor(
     private val moviesDataSource: MoviesDataSource
-) :
-    MoviesRepository {
+) : MoviesRepository {
 
     override fun getMovies(name: String, index: Int): Single<MovieSearchResult> {
-        TODO("Not yet implemented")
+        return moviesDataSource.getMovies(name = name, index = index)
     }
 
-    override fun getMovieDetails(movieID: Int): Single<MovieDetails> {
-        TODO("Not yet implemented")
+    override fun getMovieDetails(movieID: String): Single<MovieDetails> {
+        return moviesDataSource.getMovieDetails(id = movieID)
     }
 
 

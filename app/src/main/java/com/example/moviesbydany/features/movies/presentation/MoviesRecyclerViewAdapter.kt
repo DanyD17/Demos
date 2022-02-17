@@ -10,7 +10,8 @@ import com.example.moviesbydany.features.movies.domain.model.Movie
 import com.squareup.picasso.Picasso
 
 
-class MoviesRecyclerViewAdapter : RecyclerView.Adapter<MoviesRecyclerViewAdapter.ViewHolder>() {
+class MoviesRecyclerViewAdapter(private val onClick: (String) -> Unit) :
+    RecyclerView.Adapter<MoviesRecyclerViewAdapter.ViewHolder>() {
     private var movieList = mutableListOf<Movie>()
 
     fun setList(list: List<Movie>, isReset: Boolean = false) {
@@ -40,6 +41,11 @@ class MoviesRecyclerViewAdapter : RecyclerView.Adapter<MoviesRecyclerViewAdapter
         Picasso.get()
             .load(item.Poster)
             .into(holder.imageView)
+        holder.imageView.setOnClickListener {
+            onClick.invoke(item.imdbID)
+        }
+
+
     }
 
     override fun getItemCount(): Int = movieList.size

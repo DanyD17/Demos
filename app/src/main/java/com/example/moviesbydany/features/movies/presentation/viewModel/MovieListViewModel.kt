@@ -14,7 +14,7 @@ class MovieListViewModel @Inject constructor(private val getMoviesListUseCase: G
     ViewModel() {
 
     val response = MutableLiveData<Response<MovieSearchResult>>()
-    fun getUsers(name: String, index: Int) {
+    fun getMovies(name: String, index: Int) {
         response.value = Response.loading(null)
         getMoviesListUseCase.execute(ListParams(name = name, index = index),
             onSuccess = {

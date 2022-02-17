@@ -1,4 +1,4 @@
-package com.example.moviesbydany.features.movies.presentation.ui
+package com.example.moviesbydany.features.movies.presentation.view
 
 import android.app.SearchManager
 import android.content.Context
@@ -6,9 +6,11 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.appcompat.widget.SearchView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesbydany.R
@@ -47,12 +49,20 @@ class MovieListFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        adapter = MoviesRecyclerViewAdapter()
+        adapter = MoviesRecyclerViewAdapter(onClick = {
+            val bundle = bundleOf("movieId" to it)
+            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment, bundle)
+        })
         binding.rcMovies.layoutManager = GridLayoutManager(context, 2)
         binding.rcMovies.adapter = adapter
         binding.rcMovies.addOnScrollListener(rcOnScrollListener)
         setObservers()
         getMovies()
+        binding.buttonFirst.setOnClickListener {
+            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
+
+        }
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
@@ -83,7 +93,7 @@ class MovieListFragment : Fragment() {
     }
 
     private fun getMovies() {
-        movieListViewModel.getUsers(movieName, index)
+        movieListViewModel.getMovies(movieName, index)
     }
 
     private fun setObservers() {

@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/FirstFragment"
-        android:name="com.example.moviesbydany.features.movies.presentation.ui.MovieListFragment"
+        android:name="com.example.moviesbydany.features.movies.presentation.view.MovieListFragment"
         android:label="@string/first_fragment_label"
         tools:layout="@layout/fragment_movie_list">
 
@@ -17,20 +17,14 @@
     </fragment>
     <fragment
         android:id="@+id/SecondFragment"
-        android:name="com.example.moviesbydany.features.movies.presentation.ui.MovieDetailsFragment"
+        android:name="com.example.moviesbydany.features.movies.presentation.view.MovieDetailsFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_details">
-
+        <argument
+            android:name="movieId"
+            app:argType="string" />
         <action
             android:id="@+id/action_SecondFragment_to_FirstFragment"
             app:destination="@id/FirstFragment" />
-        <action
-            android:id="@+id/action_SecondFragment_to_itemFragment"
-            app:destination="@id/itemFragment" />
     </fragment>
-    <fragment
-        android:id="@+id/itemFragment"
-        android:name="com.example.moviesbydany.features.movies.presentation.ItemFragment"
-        android:label="fragment_item_list"
-        tools:layout="@layout/fragment_item_list" />
 </navigation>

@@ -1,5 +1,6 @@
 package com.example.moviesbydany.features.movies.presentation.viewModel
 
+import android.util.Log
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -20,10 +21,12 @@ class MovieDetailsViewModel @Inject constructor(private val getMoviesDetailsView
         getMoviesDetailsViewModel.execute(
             Params(id = id),
             onSuccess = {
+                Log.d("DD", "onSuccess" + it.toString())
                 movie.set(it)
                 response.value = Response.success(data = it)
             },
             onError = {
+                Log.d("DD", "onError" + it.toString())
                 response.value =
                     Response.error(data = null, message = it.message ?: "Error Occurred!")
             }

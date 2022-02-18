@@ -15,9 +15,9 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.moviesbydany.R
 import com.example.moviesbydany.databinding.FragmentMovieListBinding
-import com.example.moviesbydany.features.movies.domain.model.MovieSearchResult
 import com.example.moviesbydany.features.movies.presentation.MoviesRecyclerViewAdapter
 import com.example.moviesbydany.features.movies.presentation.viewModel.MovieListViewModel
+import com.example.moviesbydany.utils.AppAlertDialog
 import com.example.moviesbydany.utils.Status
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -82,6 +82,7 @@ class MovieListFragment : Fragment() {
                     }
                     return true
                 }
+
                 override fun onQueryTextChange(newText: String?): Boolean {
                     return true
                 }
@@ -103,17 +104,22 @@ class MovieListFragment : Fragment() {
                     Status.SUCCESS -> {
                         Log.d("DD", "SUCCESS" + resource.data.toString())
                         binding.bottomProgress.visibility = View.GONE
-                        var result = resource.data as MovieSearchResult
-                        if (!result.Search.isNullOrEmpty())
-                            adapter.setList(resource.data.Search, (index == 1))
+                        resource.data?.Search?.let { it1 -> adapter.setList(it1, (index == 1)) }
                     }
                     Status.ERROR -> {
                         binding.bottomProgress.visibility = View.GONE
-                        resource.message?.let { it1 ->
-                            Snackbar.make(
-                                binding.root,
-                                it1, Snackbar.LENGTH_LONG
-                            ).setAction("Retry", null).show()
+                        if (!it.message.isNullOrBlank() && it.message.contains("Unable to resolve host")) {
+                            AppAlertDialog(requireActivity()).buildDialog(getString(R.string.network_error)) {
+                                getMovies()
+                            }
+                        } else {
+                            it.message?.let { it1 ->
+                                Snackbar.make(
+                                    binding.root,
+                                    it1, Snackbar.LENGTH_LONG
+                                ).setAction("") {
+                                }.show()
+                            }
                         }
 
                     }

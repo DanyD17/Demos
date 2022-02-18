@@ -6,8 +6,7 @@
     <string name="second_fragment_label">Movie Details</string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
-
-
+    <string name="network_error">Something went wrong! Try checking your internet connectivity</string>
     <string name="categories">Categories</string>
     <string name="synopsis">Synopsis</string>
     <string name="score">Score</string>

@@ -1,4 +1,4 @@
-package com.example.moviesbydany.core
+package com.example.moviesbydany.utils
 
 
 import androidx.appcompat.widget.AppCompatImageView

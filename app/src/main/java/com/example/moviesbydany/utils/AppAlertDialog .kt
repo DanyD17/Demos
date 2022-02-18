@@ -6,7 +6,7 @@ import android.content.Context
 class AppAlertDialog(val context: Context) {
     fun buildDialog(message: String, onRetry: () -> Unit) {
         val builder = AlertDialog.Builder(context)
-        builder.setTitle("Hi")
+        builder.setTitle("Error!!")
         builder.setMessage(message)
         builder.setPositiveButton("Retry") { dialog, which ->
             onRetry.invoke()

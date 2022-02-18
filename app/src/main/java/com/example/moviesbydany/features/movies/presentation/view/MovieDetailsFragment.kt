@@ -1,7 +1,6 @@
 package com.example.moviesbydany.features.movies.presentation.view
 
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -34,7 +33,6 @@ class MovieDetailsFragment : Fragment() {
         _binding = FragmentDetailsBinding.inflate(inflater, container, false)
         binding.viewModel = movieDetailsViewModel
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -43,8 +41,6 @@ class MovieDetailsFragment : Fragment() {
         binding.buttonSecond.setOnClickListener {
             findNavController().navigate(R.id.action_SecondFragment_to_FirstFragment)
         }
-
-        Log.d("DD", "ffefefefefef====$movieID")
         movieDetailsViewModel.getMovieDetail(movieID)
     }
 
@@ -53,7 +49,6 @@ class MovieDetailsFragment : Fragment() {
             it?.let { resource ->
                 when (resource.status) {
                     Status.SUCCESS -> {
-
                     }
                     Status.ERROR -> {
                     }

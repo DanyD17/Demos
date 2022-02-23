@@ -1,12 +1,10 @@
- <p>&nbsp;</p>
-
-<p>&nbsp;<br />
-<span style="color:#8e44ad"><strong># Movie Searching App</strong></span><br />
+ <p><span style="font-size:20px">&nbsp;<br />
+<span style="color:#8e44ad"><strong># Movie Searching App</strong></span></span><br />
 &nbsp;</p>
 
 <p>#This is the Adroid Project developed using Clean Architecture,MVVM and SOLID principles and using TTD aprroch</p>
 
-<p><span style="color:#9b59b6"><strong># App structure&nbsp;</strong></span></p>
+<p><span style="font-size:16px"><span style="color:#9b59b6"><strong># App structure&nbsp;</strong></span></span></p>
 
 <ul>
 	<li>&nbsp;Data&nbsp;</li>
@@ -14,7 +12,7 @@
 	<li>&nbsp;Presentation</li>
 </ul>
 
-<p><span style="color:#9b59b6"><strong># Tech stack used:&nbsp;</strong></span></p>
+<p><span style="font-size:16px"><span style="color:#9b59b6"><strong># Tech stack used:&nbsp;</strong></span></span></p>
 
 <ol>
 	<li>&nbsp;Kotlin</li>
@@ -28,7 +26,7 @@
 
 <p>&nbsp;<br />
 &nbsp;<br />
-&nbsp;# App ScreenShot<br />
+<strong><span style="font-size:16px">&nbsp;# App ScreenShot</span></strong><br />
 &nbsp;<br />
 &nbsp;<img alt="" src="https://user-images.githubusercontent.com/86756969/154637522-cec1952d-4691-44cb-8626-195df2bf0fce.png" style="height:956px; width:430px" /></p>
 
